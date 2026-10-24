@@ -1,0 +1,31 @@
+{
+  "capital": 989999.85,
+  "orders": [
+    {
+      "order_id": "ORD-1791707142",
+      "status": "CLOSED",
+      "symbol": "USDINR=X",
+      "action": "BUY",
+      "units": 13532,
+      "entry_price": 96.73,
+      "stop_loss": 95.991,
+      "take_profit": 98.208,
+      "risk_amount": 9999.87,
+      "timestamp": "2026-10-11T13:55:42.561717",
+      "exit_price": 94.9625015258789,
+      "pnl": -10000.15
+    },
+    {
+      "order_id": "ORD-1791707162",
+      "status": "OPEN",
+      "symbol": "GBPUSD=X",
+      "action": "SELL",
+      "units": 713345,
+      "entry_price": 1.3234,
+      "stop_loss": 1.3374,
+      "take_profit": 1.2953,
+      "risk_amount": 10000.0,
+      "timestamp": "2026-10-11T13:56:02.385138"
+    }
+  ]
+}

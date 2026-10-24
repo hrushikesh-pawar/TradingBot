@@ -1,0 +1,100 @@
+2026-10-11 13:55:28,342 [INFO] =================================================================
+2026-10-11 13:55:28,343 [INFO] STARTING DAILY FOREX SWING SCANNER
+2026-10-11 13:55:28,343 [INFO] Model: gemini-3.8-flash | Watchlist: ['USDINR=X', 'EURUSD=X', 'GBPUSD=X']
+2026-10-11 13:55:28,344 [INFO] =================================================================
+2026-10-11 13:55:29,166 [INFO] 
+>>> SCANNING PAIR: USDINR=X <<<
+2026-10-11 13:55:29,166 [INFO] Downloading market data for USDINR=X...
+2026-10-11 13:55:35,569 [INFO] [USDINR=X] Live Close: 96.7300 | ATR(14): 0.4927
+2026-10-11 13:55:35,603 [INFO] AFC is enabled with max remote calls: 10.
+2026-10-11 13:55:42,521 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent "HTTP/1.1 200 OK"
+2026-10-11 13:55:42,560 [INFO] [USDINR=X] Gemini Bias: LONG | Conviction: 7/10
+2026-10-11 13:55:42,561 [INFO] [USDINR=X] Thesis: Price remains above both the upward-sloping 50-day EMA (95.7616) and 200-day EMA (93.8842), confirming a robust bullish regime. Recent mild price consolidation above dynamic support provides an orderly entry, with risk defined strictly below the prior session low of 96.4912 amidst steady macroeconomic baseline projections.
+2026-10-11 13:55:42,563 [INFO]  [ORDER EXECUTED] BUY 13532 USDINR=X @ 96.73 | SL: 95.991 | TP: 98.208 | Risk: ₹9,999.87
+2026-10-11 13:55:42,563 [INFO] 
+>>> SCANNING PAIR: EURUSD=X <<<
+2026-10-11 13:55:42,564 [INFO] Downloading market data for EURUSD=X...
+2026-10-11 13:55:43,016 [INFO] [EURUSD=X] Live Close: 1.1206 | ATR(14): 0.0066
+2026-10-11 13:55:43,017 [INFO] AFC is enabled with max remote calls: 10.
+2026-10-11 13:55:51,724 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent "HTTP/1.1 200 OK"
+2026-10-11 13:55:51,730 [INFO] [EURUSD=X] Gemini Bias: SHORT | Conviction: 6/10
+2026-10-11 13:55:51,730 [INFO] [EURUSD=X] Thesis: Price sits below the 50 EMA (1.1450) and 50 EMA is below the 200 EMA (1.1549), confirming a macro downtrend. However, spot price is stretched over 3.6 ATRs below the 50 EMA and printing tight daily consolidation dojis, making immediate short entry poor on risk-reward. Patience is warranted until a mean-reversion pullback occurs.
+2026-10-11 13:55:51,731 [INFO] [EURUSD=X] Skipped: Bias is SHORT (Execute = False).
+2026-10-11 13:55:51,731 [INFO] 
+>>> SCANNING PAIR: GBPUSD=X <<<
+2026-10-11 13:55:51,732 [INFO] Downloading market data for GBPUSD=X...
+2026-10-11 13:55:52,198 [INFO] [GBPUSD=X] Live Close: 1.3234 | ATR(14): 0.0066
+2026-10-11 13:55:52,200 [INFO] AFC is enabled with max remote calls: 10.
+2026-10-11 13:56:02,371 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent "HTTP/1.1 200 OK"
+2026-10-11 13:56:02,376 [INFO] [GBPUSD=X] Gemini Bias: SHORT | Conviction: 7/10
+2026-10-11 13:56:02,377 [INFO] [GBPUSD=X] Thesis: Price sits below downward-sloping 50 and 200 EMAs with 50 EMA positioned below the 200 EMA, confirming an established daily downtrend. Macro conditions remain stable with controlled inflation and steady rate paths, enabling trend continuation without high-volatility shocks.
+2026-10-11 13:56:02,386 [INFO]  [ORDER EXECUTED] SELL 713345 GBPUSD=X @ 1.3234 | SL: 1.3374 | TP: 1.2953 | Risk: ₹10,000.00
+2026-10-11 13:56:02,386 [INFO] 
+=================================================================
+2026-10-11 13:56:02,387 [INFO] SCAN COMPLETE. Check 'paper_portfolio.json' and 'trading_bot.log'.
+2026-10-11 13:56:02,387 [INFO] =================================================================
+2026-10-11 14:41:46,051 [INFO] =================================================================
+2026-10-11 14:41:46,052 [INFO] STARTING FORWARD-LOOKING EXPECTATION SCANNER
+2026-10-11 14:41:46,052 [INFO] Model: gemini-3.8-flash | Watchlist: ['USDINR=X', 'EURUSD=X', 'GBPUSD=X']
+2026-10-11 14:41:46,053 [INFO] =================================================================
+2026-10-11 14:41:46,902 [INFO] Scanning global economic calendar (72h forward window)...
+2026-10-11 14:41:47,755 [INFO] Found 3 scheduled medium/high impact events.
+2026-10-11 14:41:49,490 [INFO] Checking open portfolio positions...
+2026-10-11 14:41:49,492 [INFO] 
+>>> ANALYZING EXPECTATIONS FOR: USDINR=X <<<
+2026-10-11 14:41:49,515 [INFO] AFC is enabled with max remote calls: 10.
+2026-10-11 14:41:57,530 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent "HTTP/1.1 200 OK"
+2026-10-11 14:41:57,567 [INFO] [USDINR=X] Bias: LONG | Confidence: 7/10
+2026-10-11 14:41:57,568 [INFO] [USDINR=X] Forward Catalyst: Absence of near-term tier-1 event risk preserves underlying US-India rate differentials and systemic USD strength against EM currencies
+2026-10-11 14:41:57,568 [INFO] [USDINR=X] Thesis: USDINR exhibits clear bullish technical alignment with spot trading well above both the 50 and 200 EMAs. With a clear 72-hour macroeconomic calendar devoid of binary event risk, trend continuation remains favored by standard carry and structural demand, invalidated only by a break below dynamic 50 EMA support.
+2026-10-11 14:41:57,568 [INFO] [USDINR=X] Position already open. Skipping duplicate.
+2026-10-11 14:41:57,569 [INFO] 
+>>> ANALYZING EXPECTATIONS FOR: EURUSD=X <<<
+2026-10-11 14:41:57,570 [INFO] AFC is enabled with max remote calls: 10.
+2026-10-11 14:41:59,400 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent "HTTP/1.1 503 Service Unavailable"
+2026-10-11 14:41:59,402 [ERROR] [EURUSD=X] Analysis failed: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+2026-10-11 14:41:59,403 [INFO] 
+>>> ANALYZING EXPECTATIONS FOR: GBPUSD=X <<<
+2026-10-11 14:41:59,405 [INFO] AFC is enabled with max remote calls: 10.
+2026-10-11 14:42:03,292 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent "HTTP/1.1 503 Service Unavailable"
+2026-10-11 14:42:03,295 [ERROR] [GBPUSD=X] Analysis failed: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+2026-10-11 14:42:03,296 [INFO] 
+=================================================================
+2026-10-11 14:42:03,296 [INFO] SCAN COMPLETED.
+2026-10-11 14:42:03,296 [INFO] =================================================================
+2026-10-15 10:39:08,541 [INFO] =================================================================
+2026-10-15 10:39:08,542 [INFO] STARTING CROSS-ASSET EXPECTATION SCANNER (FOREX & CRYPTO)
+2026-10-15 10:39:08,543 [INFO] =================================================================
+2026-10-15 10:39:21,759 [INFO] 🔔 📝 PAPER TRADE CLOSED: USDINR=X
+Result: STOP LOSS
+Realized PnL: ₹-10,000.15
+New Paper Balance: ₹989,999.85
+2026-10-15 10:39:21,770 [INFO] 
+>>> ANALYZING EXPECTATIONS FOR: USDINR=X <<<
+2026-10-15 10:39:21,843 [INFO] AFC is enabled with max remote calls: 10.
+2026-10-15 10:39:23,572 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent "HTTP/1.1 503 Service Unavailable"
+2026-10-15 10:39:23,575 [ERROR] [USDINR=X] Analysis failed: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+2026-10-15 10:39:27,576 [INFO] 
+>>> ANALYZING EXPECTATIONS FOR: EURUSD=X <<<
+2026-10-15 10:39:27,578 [INFO] AFC is enabled with max remote calls: 10.
+2026-10-15 10:39:31,372 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent "HTTP/1.1 503 Service Unavailable"
+2026-10-15 10:39:31,376 [ERROR] [EURUSD=X] Analysis failed: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+2026-10-15 10:39:35,377 [INFO] 
+>>> ANALYZING EXPECTATIONS FOR: GBPUSD=X <<<
+2026-10-15 10:39:35,380 [INFO] AFC is enabled with max remote calls: 10.
+2026-10-15 10:39:36,628 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent "HTTP/1.1 503 Service Unavailable"
+2026-10-15 10:39:36,631 [ERROR] [GBPUSD=X] Analysis failed: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+2026-10-15 10:39:40,631 [INFO] 
+>>> ANALYZING EXPECTATIONS FOR: BTC-USD <<<
+2026-10-15 10:39:40,633 [INFO] AFC is enabled with max remote calls: 10.
+2026-10-15 10:39:44,429 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent "HTTP/1.1 503 Service Unavailable"
+2026-10-15 10:39:44,432 [ERROR] [BTC-USD] Analysis failed: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+2026-10-15 10:39:48,433 [INFO] 
+>>> ANALYZING EXPECTATIONS FOR: ETH-USD <<<
+2026-10-15 10:39:48,434 [INFO] AFC is enabled with max remote calls: 10.
+2026-10-15 10:39:49,237 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent "HTTP/1.1 503 Service Unavailable"
+2026-10-15 10:39:49,239 [ERROR] [ETH-USD] Analysis failed: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}
+2026-10-15 10:39:53,241 [INFO] 
+=================================================================
+2026-10-15 10:39:53,241 [INFO] SCAN COMPLETED.
+2026-10-15 10:39:53,241 [INFO] =================================================================
