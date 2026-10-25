@@ -5,7 +5,7 @@ import os
 
 # Connect to your core telegram module
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from core.telegram_alerts import send_telegram_alert 
+from core.telegram_alerts import send_telegram_message 
 
 def fetch_gold_data():
     print("Fetching 6 months of daily Gold data...")
@@ -48,6 +48,6 @@ if __name__ == "__main__":
         msg = f"🚨 *XAU/USD SIGNAL*\nAction: {action}\nEntry: ${price}\nStrategy: 20/50 SMA Crossover"
         
         print(f"Triggering Devil's Trading Bot for {action} at ${price}...")
-        send_telegram_alert(msg) 
+        send_telegram_message(msg) 
     else:
         print("No XAU/USD crossovers detected today.")
