@@ -1,5 +1,11 @@
 import yfinance as yf
 import pandas as pd
+import sys
+import os
+
+# Connect to your core telegram module
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+from core.telegram_alerts import send_telegram_alert 
 
 def fetch_gold_data():
     print("Fetching 6 months of daily Gold data...")
@@ -32,7 +38,16 @@ if __name__ == "__main__":
     gold_data = calculate_moving_averages(gold_data)
     gold_data = generate_signals(gold_data)
     
-    # Filter and print only the days where a crossover occurred
     crossovers = gold_data[gold_data['Position_Change'] != 0].dropna()
-    print("\nRecent Swing Trade Signals:")
-    print(crossovers[['Close', 'SMA_20', 'SMA_50', 'Signal']])
+    
+    if not crossovers.empty:
+        latest = crossovers.iloc[-1]
+        action = "🟢 BUY" if latest['Signal'] == 1 else "🔴 SELL"
+        price = round(latest['Close'], 2)
+        
+        msg = f"🚨 *XAU/USD SIGNAL*\nAction: {action}\nEntry: ${price}\nStrategy: 20/50 SMA Crossover"
+        
+        print(f"Triggering Devil's Trading Bot for {action} at ${price}...")
+        send_telegram_alert(msg) 
+    else:
+        print("No XAU/USD crossovers detected today.")
