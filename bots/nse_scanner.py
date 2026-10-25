@@ -3,10 +3,12 @@ import pandas as pd
 import numpy as np
 import sys
 import os
+from datetime import datetime
 
-# Connect to your core telegram module
+# Connect to your core telegram and database modules
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from core.telegram_alerts import send_telegram_message 
+from core.sheet_logger import log_trade
 
 # Basket of top Indian Equities (Add any .NS tickers here)
 NIFTY_TICKERS = [
@@ -119,6 +121,12 @@ if __name__ == "__main__":
                     
                     print(f"Triggering Telegram alert for {ticker}...")
                     send_telegram_message(msg)
+                    
+                    # Log to Google Sheets
+                    today = datetime.now().strftime("%Y-%m-%d")
+                    headers = ["Ticker", "Date", "Action", "Entry", "Stop Loss", "Take Profit", "Win Probability", "Final Call"]
+                    row_data = [ticker, today, dir_str, round(price, 2), round(sl, 2), round(tp, 2), f"{win_prob:.1f}%", final_call]
+                    log_trade("NSE_Trade_Log", headers, row_data)
                     
         except Exception as e:
             print(f"Error processing {ticker}: {e}")

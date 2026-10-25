@@ -12,7 +12,7 @@ from core.sheet_logger import log_trade
 
 def fetch_gold_data():
     gold_ticker = yf.Ticker("GC=F") 
-    df = gold_ticker.history(period="2y", interval="1d") # 2 years needed for 200 SMA
+    df = gold_ticker.history(period="2y", interval="1d")
     df = df[['Open', 'High', 'Low', 'Close', 'Volume']].dropna()
     return df
 
@@ -124,7 +124,9 @@ if __name__ == "__main__":
         
         # Log to Google Sheets
         today = datetime.now().strftime("%Y-%m-%d")
-        log_trade(today, dir_str, round(price, 2), round(sl, 2), round(tp, 2), f"{win_prob:.1f}%", final_call)
-         
+        headers = ["Date", "Action", "Entry", "Stop Loss", "Take Profit", "Win Probability", "Final Call"]
+        row_data = [today, dir_str, round(price, 2), round(sl, 2), round(tp, 2), f"{win_prob:.1f}%", final_call]
+        log_trade("XAU_USD_Trade_Log", headers, row_data)
+        
     else:
         print("No advanced XAU/USD setups detected today.")
