@@ -3,10 +3,12 @@ import pandas as pd
 import numpy as np
 import sys
 import os
+from datetime import datetime
 
-# Connect to your core telegram module
+# Connect to your core modules
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from core.telegram_alerts import send_telegram_message 
+from core.sheet_logger import log_trade
 
 def fetch_gold_data():
     gold_ticker = yf.Ticker("GC=F") 
@@ -119,5 +121,10 @@ if __name__ == "__main__":
         )
         
         send_telegram_message(msg) 
+        
+        # Log to Google Sheets
+        today = datetime.now().strftime("%Y-%m-%d")
+        log_trade(today, dir_str, round(price, 2), round(sl, 2), round(tp, 2), f"{win_prob:.1f}%", final_call)
+         
     else:
         print("No advanced XAU/USD setups detected today.")
