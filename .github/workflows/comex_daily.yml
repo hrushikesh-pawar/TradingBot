@@ -1,4 +1,4 @@
-name: XAU/USD Daily Scanner
+name: Comex Daily Scanner
 
 on:
   schedule:
@@ -27,4 +27,4 @@ jobs:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           GCP_CREDENTIALS: ${{ secrets.GCP_CREDENTIALS }}
-        run: python bots/xau_scanner.py
+        run: python bots/commodity_scanner.py
