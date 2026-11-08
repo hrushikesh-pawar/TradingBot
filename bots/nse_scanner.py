@@ -13,7 +13,7 @@ from core.sheet_logger import log_trade
 # Basket of top Indian Equities (Add any .NS tickers here)
 NIFTY_TICKERS = [
     "RELIANCE.NS", "HDFCBANK.NS", "ICICIBANK.NS", 
-    "INFY.NS", "TCS.NS", "ITC.NS", "LT.NS", "SBI.NS", "BHARTIARTL.NS"
+    "INFY.NS", "TCS.NS", "ITC.NS", "LT.NS", "SBIN.NS", "BHARTIARTL.NS"
 ]
 
 def calculate_indicators(df):
@@ -42,7 +42,9 @@ def generate_signals(df):
     
     df.loc[bull_condition, 'Signal'] = 1
     df.loc[bear_condition, 'Signal'] = -1
-    df['Position_Change'] = df['Signal'].diff()
+    # Only a NEW non-zero signal counts as an entry. A signal dropping back to 0
+    # (e.g. RSI going above 70) is NOT a SELL, so it must not trigger an alert.
+    df['New_Entry'] = (df['Signal'] != 0) & (df['Signal'] != df['Signal'].shift(1))
     return df
 
 def run_monte_carlo(current_price, log_returns, tp, sl, action, days=21, sims=10000):
@@ -83,7 +85,7 @@ if __name__ == "__main__":
             df = calculate_indicators(df)
             df = generate_signals(df)
             
-            crossovers = df[df['Position_Change'] != 0]
+            crossovers = df[df['New_Entry']]
             if not crossovers.empty:
                 # STRICT FILTER: Only alert if the crossover happened exactly today
                 if crossovers.index[-1] == df.index[-1]:
